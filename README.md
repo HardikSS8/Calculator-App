@@ -33,7 +33,8 @@ Finally using above Calculator_App.java we can make the scientific calculator as
 
 <br />
 <br />
-![Screenshot 2020-02-18 at 4 32 44 PM](https://user-images.githubusercontent.com/35401920/74730855-ec24c600-526c-11ea-9cc0-c814ae46f6c6.png)
+
+![Screenshot 2020-02-18 at 4 32 44 PM](https://user-images.githubusercontent.com/35401920/74730948-18404700-526d-11ea-9e23-cfa580c1cffa.png)
 
 <br />
 <br />
