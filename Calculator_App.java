@@ -17,6 +17,14 @@ public class Calculator_App {
         cal_screen.setText("");
     }
 
+    private int fact(int n) {
+        int fact = 1;
+        for(int i=2; i<=n; i++) {
+            fact = fact*i;
+        }
+        return fact;
+    }
+
     private JPanel mainPanel;
     private JTextField cal_screen;
     private JButton evaluate;
@@ -58,6 +66,9 @@ public class Calculator_App {
     private JButton sinhButton;
     private JButton coshButton;
     private JButton tanhButton;
+    private JButton nButton;
+    private JButton cButton;
+    private JButton crootButton;
 
     public Calculator_App() {
         a0Button.addActionListener(new ActionListener() {
@@ -166,10 +177,28 @@ public class Calculator_App {
                     case '^':
                         total_eva = Math.pow(total,Double.parseDouble(cal_screen.getText()));
                         break;
+                    case 'N':
+                        int n = (int) total;
+                        int r = Integer.parseInt(cal_screen.getText());
+
+                        int uppart_part = fact(n);
+                        int lower_part = fact(n-r);
+                        Double ans = Double.parseDouble(String.valueOf(uppart_part/lower_part));
+                        total_eva = ans;
+                        break;
+                    case 'C':
+                        int n1 = (int) total;
+                        int r1= Integer.parseInt(cal_screen.getText());
+
+                        int uppar = fact(n1);
+                        int lower = fact(r1)*fact(n1-r1);
+                        Double ans1 = Double.parseDouble(String.valueOf(uppar/lower));
+                        total_eva = ans1;
+                        break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + math_operator);
                 }
-                cal_screen.setText(Double.toString(total_eva));
+                    cal_screen.setText(Double.toString(total_eva));
                 total = 0;
                 evaluate.setBackground(Color.ORANGE);
             }
@@ -399,6 +428,28 @@ public class Calculator_App {
             public void actionPerformed(ActionEvent actionEvent) {
                 String XresToY = xYButton.getText();
                 operator(XresToY);
+            }
+        });
+        cButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String nCr = cButton.getText();
+                operator(nCr);
+            }
+        });
+        nButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String nPr = nButton.getText();
+                operator(nPr);
+            }
+        });
+        crootButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Double input = Double.parseDouble(cal_screen.getText());
+                Double cubeRoot = Math.cbrt(input);
+                cal_screen.setText(Double.toString(cubeRoot));
             }
         });
     }
