@@ -30,7 +30,10 @@ After giving field name of given large panel we can simply go to our .java file 
 After clicking the Run option we can see the application running in new small window.
 
 Finally using above Calculator_App.java we can make the scientific calculator as shown below.
-<br />
-<br />
 
-![Screenshot 2020-02-15 at 8 40 38 PM](https://user-images.githubusercontent.com/35401920/74590331-77b31280-5033-11ea-9bf2-94c6d7e4e590.png)
+<br />
+<br />
+![Screenshot 2020-02-18 at 4 32 44 PM](https://user-images.githubusercontent.com/35401920/74730855-ec24c600-526c-11ea-9cc0-c814ae46f6c6.png)
+
+<br />
+<br />
