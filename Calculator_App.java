@@ -17,6 +17,7 @@ public class Calculator_App {
         cal_screen.setText("");
     }
 
+    // To calculate the npr and ncr 
     private int fact(int n) {
         int fact = 1;
         for(int i=2; i<=n; i++) {
@@ -177,7 +178,7 @@ public class Calculator_App {
                     case '^':
                         total_eva = Math.pow(total,Double.parseDouble(cal_screen.getText()));
                         break;
-                    case 'N':
+                    case 'P':
                         int n = (int) total;
                         int r = Integer.parseInt(cal_screen.getText());
 
@@ -437,10 +438,10 @@ public class Calculator_App {
                 operator(nCr);
             }
         });
-        nButton.addActionListener(new ActionListener() {
+        pButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                String nPr = nButton.getText();
+                String nPr = pButton.getText();
                 operator(nPr);
             }
         });
