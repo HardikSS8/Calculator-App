@@ -17,7 +17,6 @@ public class Calculator_App {
         cal_screen.setText("");
     }
 
-    // To calculate the npr and ncr 
     private int fact(int n) {
         int fact = 1;
         for(int i=2; i<=n; i++) {
@@ -67,9 +66,9 @@ public class Calculator_App {
     private JButton sinhButton;
     private JButton coshButton;
     private JButton tanhButton;
-    private JButton nButton;
-    private JButton cButton;
     private JButton crootButton;
+    private JButton pButton;
+    private JButton cButton;
 
     public Calculator_App() {
         a0Button.addActionListener(new ActionListener() {
@@ -199,7 +198,7 @@ public class Calculator_App {
                     default:
                         throw new IllegalStateException("Unexpected value: " + math_operator);
                 }
-                    cal_screen.setText(Double.toString(total_eva));
+                cal_screen.setText(Double.toString(total_eva));
                 total = 0;
                 evaluate.setBackground(Color.ORANGE);
             }
@@ -246,19 +245,12 @@ public class Calculator_App {
                 operator(per);
             }
         });
-
-        // EDITING REMAINING FOR THIS BUTTON
         plusMinus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Double plusMinus = Double.parseDouble(cal_screen.getText());
-                Double edit = plusMinus;
-                if(Double.parseDouble(cal_screen.getText()) > 0) {
-                    plusMinus = plusMinus - 2*edit;
-                } else {
-                    plusMinus = plusMinus + 2*edit;
-                }
-                cal_screen.setText(Double.toString(plusMinus));
+                Double pm = (-1 *  plusMinus);
+                cal_screen.setText(Double.toString(pm));
             }
         });
         x2Button.addActionListener(new ActionListener() {
@@ -275,13 +267,6 @@ public class Calculator_App {
                 Double input = Double.parseDouble(cal_screen.getText());
                 Double cube = input*input*input;
                 cal_screen.setText(Double.toString(cube));
-            }
-        });
-        eButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                String expon = cal_screen.getText() + Math.exp(1);
-                cal_screen.setText(expon);
             }
         });
         sinButton.addActionListener(new ActionListener() {
@@ -402,11 +387,34 @@ public class Calculator_App {
                 cal_screen.setText(Double.toString(log10));
             }
         });
+        // SOLVED PROBLEM OF
+        // ON click e button and after that click pi button and screen will be like
+        //    2.718281828459045.3.141592653589793
+
+        // After updating solution will be multiply the both number
+        //    8.539734222673566
         piButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                String piValue = cal_screen.getText() + Math.PI;
-                cal_screen.setText(piValue);
+                double piValue;
+                if(cal_screen.getText().equals("")) {
+                    piValue = Math.PI;
+                } else {
+                    piValue = Double.parseDouble(cal_screen.getText()) * Math.PI;
+                }
+                cal_screen.setText(String.valueOf(piValue));
+            }
+        });
+        eButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                double expon;
+                if(cal_screen.getText().equals("")) {
+                    expon = Math.exp(1);
+                } else {
+                    expon = Double.parseDouble(cal_screen.getText()) * Math.exp(1);
+                }
+                cal_screen.setText(String.valueOf(expon));
             }
         });
         factorial.addActionListener(new ActionListener() {
@@ -431,11 +439,12 @@ public class Calculator_App {
                 operator(XresToY);
             }
         });
-        cButton.addActionListener(new ActionListener() {
+        crootButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                String nCr = cButton.getText();
-                operator(nCr);
+                Double input = Double.parseDouble(cal_screen.getText());
+                Double cubeRoot = Math.cbrt(input);
+                cal_screen.setText(Double.toString(cubeRoot));
             }
         });
         pButton.addActionListener(new ActionListener() {
@@ -445,12 +454,11 @@ public class Calculator_App {
                 operator(nPr);
             }
         });
-        crootButton.addActionListener(new ActionListener() {
+        cButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Double input = Double.parseDouble(cal_screen.getText());
-                Double cubeRoot = Math.cbrt(input);
-                cal_screen.setText(Double.toString(cubeRoot));
+                String nCr = cButton.getText();
+                operator(nCr);
             }
         });
     }
